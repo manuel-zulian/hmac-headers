@@ -170,11 +170,10 @@ case class HMACRequest(httpVerb: HTTP.Verb,
 
   def toSeq: Seq[String] = Seq(
       httpVerb.toString,
-      contentMd5.toStringValue,
       contentType.toStringValue,
-      date.value.toRfc7231String,
+      contentMd5.toStringValue,
       uri.getPath,
-      additionalHeaders.toStringValue
+      date.value.toRfc7231String
   )
 
   override def toString = {
