@@ -177,7 +177,7 @@ case class HMACRequest(httpVerb: HTTP.Verb,
   )
 
   override def toString = {
-    toSeq.mkString("\n")
+    toSeq.mkString(",")
   }
 }
 
@@ -188,7 +188,7 @@ trait HMACHeaders extends LazyLogging {
 
   def secret: String
 
-  private val Algorithm = "HmacSHA256"
+  private val Algorithm = "HmacSHA1"
   private val HmacValidDurationInMinutes = 5
   private val MinuteInMilliseconds = 60000
   private val UTF8Charset = StandardCharsets.UTF_8
